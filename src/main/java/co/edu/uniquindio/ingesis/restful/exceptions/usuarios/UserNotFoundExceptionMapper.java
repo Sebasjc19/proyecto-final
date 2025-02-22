@@ -1,5 +1,6 @@
 package co.edu.uniquindio.ingesis.restful.exceptions.usuarios;
 
+import co.edu.uniquindio.ingesis.restful.dtos.usuarios.ErrorResponse;
 import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;

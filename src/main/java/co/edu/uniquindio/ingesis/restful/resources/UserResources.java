@@ -1,8 +1,4 @@
 package co.edu.uniquindio.ingesis.restful.resources;
-
-import co.edu.uniquindio.ingesis.restful.dtos.usuarios.UserRegistrationRequest;
-import co.edu.uniquindio.ingesis.restful.dtos.usuarios.UserResponse;
-import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
