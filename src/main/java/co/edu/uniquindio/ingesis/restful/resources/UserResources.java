@@ -18,4 +18,12 @@ public class UserResources {
         // TODO cambiar por Response.create
         return Response.ok("Usuario con ID " + id + " eliminado con éxito.").build();
     }
+    @GET
+    @Path("/{id}")
+    public Response getUserById(@PathParam("id") String id) {
+        if (!id.equals("123")) {
+            throw new NotFoundException("No se pudo obtener: Usuario con ID " + id + " no encontrado.");
+        }
+        return Response.ok("Usuario con ID " + id + " encontrado.").build();
+    }
 }
