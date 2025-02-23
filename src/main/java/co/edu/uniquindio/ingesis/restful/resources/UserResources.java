@@ -1,4 +1,7 @@
 package co.edu.uniquindio.ingesis.restful.resources;
+import co.edu.uniquindio.ingesis.restful.dtos.usuarios.UserResponse;
+import co.edu.uniquindio.ingesis.restful.dtos.usuarios.UserUpdateRequest;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -25,5 +28,13 @@ public class UserResources {
             throw new NotFoundException("No se pudo obtener: Usuario con ID " + id + " no encontrado.");
         }
         return Response.ok("Usuario con ID " + id + " encontrado.").build();
+    }
+    @PUT
+    @Path("/{id}")
+    public Response updateUserById(@PathParam("id") String id) {
+        if (!id.equals("123")) {
+            throw new NotFoundException("No se pudo obtener: Usuario con ID " + id + " no encontrado.");
+        }
+        return Response.ok("Usuario con ID " + id + " actualizado con éxito.").build();
     }
 }
