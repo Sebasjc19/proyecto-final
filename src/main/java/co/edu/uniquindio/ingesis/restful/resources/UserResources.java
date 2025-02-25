@@ -28,11 +28,12 @@ public class UserResources {
     }
 
     @GET
-    public Response getUsers(){
+    public Response getUsers() {
         List<ObtainUsersResponse> responseBody = new ArrayList<>();
         //Consultar usuarios en la base de datos
-        responseBody.add(new ObtainUsersResponse("James","Smith","Jamesito", LocalDate.of(2002, 05, 17), "3214560987"));
+        responseBody.add(new ObtainUsersResponse("James", "Smith", "Jamesito", LocalDate.of(2002, 05, 17), "3214560987"));
         return Response.ok(responseBody).build();
+    }
 
     @GET
     @Path("/{id}")
