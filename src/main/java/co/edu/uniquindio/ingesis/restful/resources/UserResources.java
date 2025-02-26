@@ -55,4 +55,13 @@ public class UserResources {
         }
         return Response.ok("Usuario con correo "+user.email()+" creado con éxito.").build();
     }
+
+    @PUT
+    @Path("/{id}")
+    public Response updateUserById(@PathParam("id") String id) {
+        if (!id.equals("123")) {
+            throw new NotFoundException("No se pudo obtener: Usuario con ID " + id + " no encontrado.");
+        }
+        return Response.ok("Usuario con ID " + id + " actualizado con éxito.").build();
+    }
 }
