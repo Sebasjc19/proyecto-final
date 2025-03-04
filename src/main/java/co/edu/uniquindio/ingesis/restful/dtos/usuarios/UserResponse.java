@@ -10,7 +10,7 @@ import java.util.Collection;
 
 public record UserResponse(
         @NotBlank
-        String id,
+        Long id,
         @Size(min=4,max = 20,message = "El username debe tener mínimo 4 caracteres y máximo 20")
         @NotBlank(message = "El username es obligatorio")
         String username,
