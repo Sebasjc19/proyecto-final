@@ -2,7 +2,9 @@ package co.edu.uniquindio.ingesis.restful.resources;
 
 import co.edu.uniquindio.ingesis.restful.dtos.usuarios.ObtainUsersResponse;
 import co.edu.uniquindio.ingesis.restful.dtos.usuarios.UserRegistrationRequest;
+import co.edu.uniquindio.ingesis.restful.dtos.usuarios.UserResponse;
 import co.edu.uniquindio.ingesis.restful.exceptions.usuarios.EmailAlredyExistsExceptionMapper;
+import co.edu.uniquindio.ingesis.restful.services.interfaces.UserService;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -17,14 +19,12 @@ import java.util.UUID;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserResources {
+    UserService userService;
     @DELETE
     @Path("/{id}")
-    public Response deleteUserById(@PathParam("id") String id) {
-        if (!id.equals("123")) {
-            throw new NotFoundException("No se pudo eliminar: Usuario con ID " + id + " no encontrado.");
-        }
-        // TODO cambiar por Response.create
-        return Response.ok("Usuario con ID " + id + " eliminado con éxito.").build();
+    public Response deleteUsuario(@PathParam("id") Long id) {
+        UserResponse deleteUserResponse = userService.deleteUsuario(id);
+        return Response.ok(deleteUserResponse).build();
     }
 
     @GET
@@ -37,11 +37,9 @@ public class UserResources {
 
     @GET
     @Path("/{id}")
-    public Response getUserById(@PathParam("id") String id) {
-        if (!id.equals("123")) {
-            throw new NotFoundException("No se pudo obtener: Usuario con ID " + id + " no encontrado.");
-        }
-        return Response.ok("Usuario con ID " + id + " encontrado.").build();
+    public Response getUsuarioById(@PathParam("id") Long id) {
+        UserResponse userResponse = userService.getUsuarioById(id);
+        return Response.ok(userResponse).build();
     }
     @POST
     public Response createUser(@Valid UserRegistrationRequest user) {
