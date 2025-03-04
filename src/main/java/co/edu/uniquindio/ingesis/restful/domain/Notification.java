@@ -14,9 +14,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "notification")
 public class Notification extends PanacheEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Size(min = 3, max = 20)
     private String message;
     private LocalDate sentDate;

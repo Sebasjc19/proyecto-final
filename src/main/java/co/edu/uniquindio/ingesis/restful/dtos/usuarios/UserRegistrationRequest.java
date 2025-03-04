@@ -12,7 +12,7 @@ public record UserRegistrationRequest(
         @Email(message = "Debe ser un email válido")
         String email,
         @NotBlank(message = "El campo es requerido")
-        @Pattern(regexp = "^(?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z]).*$",message = "La contraseña debe tener al menos una mayúscula, una minúscula y un número.")
+        @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$",message = "La contraseña debe tener al menos una mayúscula, una minúscula y un número.")
         @Size (min = 8,message = "La longitud mínima es 8")
         String password,
         @NotBlank(message = "El campo es requerido")

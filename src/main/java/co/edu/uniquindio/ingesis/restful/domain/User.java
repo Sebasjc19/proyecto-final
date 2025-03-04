@@ -17,16 +17,13 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "user")
 public class User extends PanacheEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @NotBlank
     private String name;
     @NotBlank
     @Email
     private String email;
     @NotBlank
-    @Pattern(regexp = "^(?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z]).*$",
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$",
             message = "La contraseña debe tener al menos una mayúscula, una minúscula y un número.")
     private String password;
     private String role;

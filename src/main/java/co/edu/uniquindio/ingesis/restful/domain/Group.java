@@ -12,9 +12,6 @@ import lombok.Setter;
 @Entity
 @Table(name = "group")
 public class Group extends PanacheEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Size(min = 3, max = 20)
     private String name;
     @NotNull
