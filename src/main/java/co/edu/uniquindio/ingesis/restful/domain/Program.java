@@ -16,9 +16,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "program")
 public class Program extends PanacheEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @NotNull
     @NotBlank
     private String title;
@@ -28,7 +25,7 @@ public class Program extends PanacheEntity {
     private String code;
     private LocalDate creationDate;
     private LocalDate modificationDate;
-    private Status status;
+    private Type type;
     @NotNull
     private Long userId;
 }

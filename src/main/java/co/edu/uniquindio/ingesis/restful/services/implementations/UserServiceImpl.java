@@ -1,9 +1,13 @@
 package co.edu.uniquindio.ingesis.restful.services.implementations;
 
+import co.edu.uniquindio.ingesis.restful.domain.User;
 import co.edu.uniquindio.ingesis.restful.dtos.usuarios.UserRegistrationRequest;
 import co.edu.uniquindio.ingesis.restful.dtos.usuarios.UserResponse;
+import co.edu.uniquindio.ingesis.restful.exceptions.usuarios.ResourceNotFoundException;
+import co.edu.uniquindio.ingesis.restful.mappers.UserMapper;
 import co.edu.uniquindio.ingesis.restful.services.interfaces.UserService;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @ApplicationScoped
