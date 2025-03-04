@@ -1,0 +1,108 @@
+openapi: 3.1.0
+info:
+  title: java-edu
+  description: java-edu
+  version: 1.0.0
+servers:
+  - url: 'https'
+paths:
+  /users:
+    post:
+      summary: User register
+      description: Register a new user in platform
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  format: password
+                datebirth:
+                  type: string
+                  format: date
+      responses:
+        "201":
+          description: User created successfully
+        "400":
+          description: Invalid data
+    get:
+      summary: Get all users
+      description: Get all existing users in database
+      responses:
+        200:
+          description: Ok
+  /users/{id}:
+    delete:
+      summary: Delete a user
+      description: Delete a existing user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: User deleted successfully
+        404:
+          description: User not found
+    get:
+      summary: Get an users
+      description: Get an existing user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+        404:
+          description: User not found
+    patch:
+      summary: Update an user
+      description: Update an existing user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  nullable: true
+                email:
+                  type: string
+                  format: email
+                  nullable: true
+                password:
+                  type: string
+                  format: password
+                  nullable: true
+                datebirth:
+                  type: string
+                  format: date
+                  nullable: true
+      responses:
+        "200":
+          description: User updated successfully
+        "400":
+          description: Invalid data
+
+

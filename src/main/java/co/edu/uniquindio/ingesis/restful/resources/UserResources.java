@@ -56,9 +56,9 @@ public class UserResources {
         return Response.ok("Usuario con correo "+user.email()+" creado con éxito.").build();
     }
 
-    @PUT
+    @PATCH
     @Path("/{id}")
-    public Response updateUserById(@PathParam("id") String id) {
+    public Response updateUserById(@PathParam("id") String id, @Valid UserRegistrationRequest user) {
         if (!id.equals("123")) {
             throw new NotFoundException("No se pudo obtener: Usuario con ID " + id + " no encontrado.");
         }
