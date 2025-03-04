@@ -8,6 +8,7 @@ import co.edu.uniquindio.ingesis.restful.mappers.UserMapper;
 import co.edu.uniquindio.ingesis.restful.services.interfaces.UserService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
+import jakarta.ws.rs.NotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @ApplicationScoped
@@ -30,6 +31,26 @@ public class UserServiceImpl implements UserService {
         if( user == null ){
             throw new ResourceNotFoundException("Usuario no encontrado");
         }
+        return userMapper.toUserResponse(user);
+    }
+
+    @Override
+    public UserResponse getUsuarioById(Long id) {
+        User user = User.findById(id);
+        if (user == null) {
+            throw new NotFoundException("Usuario no encontrado con ID: " + id);
+        }
+        return userMapper.toUserResponse(user);
+    }
+
+    @Override
+    @Transactional
+    public UserResponse deleteUsuario(Long id) {
+        User user = User.findById(id);
+        if (user == null) {
+            throw new NotFoundException("Usuario no encontrado con ID: " + id);
+        }
+        user.delete();
         return userMapper.toUserResponse(user);
     }
 }
