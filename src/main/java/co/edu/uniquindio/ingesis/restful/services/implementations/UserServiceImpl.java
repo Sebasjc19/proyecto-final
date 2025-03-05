@@ -7,6 +7,7 @@ import co.edu.uniquindio.ingesis.restful.exceptions.usuarios.ResourceNotFoundExc
 import co.edu.uniquindio.ingesis.restful.mappers.UserMapper;
 import co.edu.uniquindio.ingesis.restful.services.interfaces.UserService;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @ApplicationScoped
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-    final UserMapper userMapper;
+    @Inject  UserMapper userMapper;
 
     @Transactional
     public UserResponse createUser(UserRegistrationRequest request) {
@@ -29,7 +30,7 @@ public class UserServiceImpl implements UserService {
     public UserResponse findById(Long id) {
         User user = User.findById(id);
         if( user == null ){
-            throw new ResourceNotFoundException("Usuario no encontrado");
+            new ResourceNotFoundException();
         }
         return userMapper.toUserResponse(user);
     }

@@ -12,10 +12,10 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Getter
-@Setter
+//@Getter
+//@Setter
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User extends PanacheEntity {
     @NotBlank
     private String name;
@@ -34,4 +34,76 @@ public class User extends PanacheEntity {
     private Rol rol;
     @NotNull
     private Long idGroup;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getIdentificationNumber() {
+        return identificationNumber;
+    }
+
+    public void setIdentificationNumber(String identificationNumber) {
+        this.identificationNumber = identificationNumber;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public LocalDate getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(LocalDate registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
+    public Long getIdGroup() {
+        return idGroup;
+    }
+
+    public void setIdGroup(Long idGroup) {
+        this.idGroup = idGroup;
+    }
 }
