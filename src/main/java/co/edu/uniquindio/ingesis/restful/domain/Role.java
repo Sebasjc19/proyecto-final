@@ -1,6 +1,6 @@
 package co.edu.uniquindio.ingesis.restful.domain;
 
-public enum Rol {
+public enum Role {
     USER,
     ADMINISTRATOR
 }

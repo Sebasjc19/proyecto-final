@@ -1,7 +1,5 @@
 package co.edu.uniquindio.ingesis.restful.dtos.usuarios;
 
-import co.edu.uniquindio.ingesis.restful.domain.Rol;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
