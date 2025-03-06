@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "notification")
+@Table(name = "notifications")
 public class Notification extends PanacheEntity {
     @Size(min = 3, max = 20)
     private String message;

@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "group")
+@Table(name = "groups")
 public class Group extends PanacheEntity {
     @Size(min = 3, max = 20)
     private String name;
