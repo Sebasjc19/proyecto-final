@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "program")
+@Table(name = "programs")
 public class Program extends PanacheEntity {
     @NotNull
     @NotBlank

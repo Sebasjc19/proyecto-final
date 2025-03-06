@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "report")
+@Table(name = "reports")
 public class Report extends PanacheEntity {
     @NotBlank
     private String content;
