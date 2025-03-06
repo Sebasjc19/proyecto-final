@@ -13,7 +13,6 @@ public interface UserMapper {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "password" , expression = "java( io.quarkus.elytron.security.common.BcryptUtil.bcryptHash(userDTO.password()) )")
-
     User parseOf(UserRegistrationRequest userDTO);
 
     UserResponse toUserResponse(User user);

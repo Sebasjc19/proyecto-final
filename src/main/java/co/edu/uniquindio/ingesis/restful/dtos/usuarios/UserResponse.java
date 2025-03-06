@@ -1,6 +1,6 @@
 package co.edu.uniquindio.ingesis.restful.dtos.usuarios;
 
-import co.edu.uniquindio.ingesis.restful.domain.Rol;
+import co.edu.uniquindio.ingesis.restful.domain.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -20,5 +20,5 @@ public record UserResponse(
         @NotBlank
         @Email
         String email,
-        Collection<Rol> roles) {
+        Collection<Role> roles) {
 }
