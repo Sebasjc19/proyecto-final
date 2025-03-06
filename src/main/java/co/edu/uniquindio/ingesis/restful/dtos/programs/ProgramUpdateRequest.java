@@ -14,6 +14,8 @@ public record ProgramUpdateRequest(
         @NotBlank
         String description,
         @NotBlank
-        String sourceCode
+        String code,
+        @NotNull
+        Long userId
 ) {
 }
