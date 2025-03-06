@@ -20,13 +20,15 @@ import java.util.Optional;
 @ApplicationScoped
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-    @Inject  UserMapper userMapper;
-    final UserRepository userRepository;
+    @Inject
+    UserMapper userMapper;
+    //@Inject
+    UserRepository userRepository;
 
     @Transactional
     public UserResponse createUser(UserRegistrationRequest request) {
         User user = userMapper.parseOf(request);
-        Optional<User> optionalUser = userRepository.finByEmail(request.email());
+        Optional<User> optionalUser = userRepository.findByEmail(request.email());
         if(!optionalUser.isEmpty()){
             new EmailAlredyExistsExceptionMapper();
         }

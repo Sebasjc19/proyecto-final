@@ -41,4 +41,5 @@ public class User extends PanacheEntity {
 
     private String role;
 
+
 }
